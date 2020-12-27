@@ -4,8 +4,7 @@ const router = new express.Router()
 const authHandlers = require('./modules/auth')
 const productHandlers = require('./modules/product')
 const categoryHandlers = require('./modules/category')
-
-router.get('/', (req, res) => res.send("api server"))
+const path = require('path')
 
 // ________________________Auth___________________________
 
@@ -49,6 +48,7 @@ router.put('/api/category'
 router.delete('/api/category/:id'
     , authHandlers.authenticatedMiddleware, categoryHandlers.delete)
 
-
+// router.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../docs/index.html')))
+router.use(express.static(path.resolve(__dirname, '../docs')))
 
 module.exports = router
