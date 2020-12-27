@@ -5,6 +5,8 @@ const authHandlers = require('./modules/auth')
 const productHandlers = require('./modules/product')
 const categoryHandlers = require('./modules/category')
 
+router.get('/', (req, res) => res.send("api server"))
+
 // ________________________Auth___________________________
 
 router.post('/api/auth/sign-up', authHandlers.signUp)
